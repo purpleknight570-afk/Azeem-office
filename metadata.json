@@ -1,0 +1,8 @@
+{
+  "name": "Remix Azeem Office",
+  "description": "Professional Microsoft Office suite replica with full ribbon interface, document editor, formatting tools, and instant high-fidelity PDF maker.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Microsoft Office Typography & System Variables */
+:root {
+  --office-blue: #185abd;
+  --office-blue-dark: #103f7c;
+  --office-blue-light: #e8f0fe;
+  --office-bg: #edebe9;
+  --office-ribbon-bg: #f3f2f1;
+  --office-border: #d2d0ce;
+}
+
+/* Custom Scrollbars matching Microsoft Office desktop */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f3f3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c8c6c4;
+  border-radius: 2px;
+  border: 3px solid #f3f3f3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8a8886;
+}
+
+/* Page shadow and layout */
+.office-page-shadow {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Document content styles */
+.office-document-content {
+  outline: none;
+  min-height: 100%;
+  color: #1a1a1a;
+  word-break: break-word;
+}
+
+.office-document-content h1 {
+  font-size: 24pt;
+  font-weight: 700;
+  margin-top: 16pt;
+  margin-bottom: 8pt;
+  color: #185abd;
+  line-height: 1.2;
+}
+
+.office-document-content h2 {
+  font-size: 18pt;
+  font-weight: 600;
+  margin-top: 14pt;
+  margin-bottom: 6pt;
+  color: #2b579a;
+  line-height: 1.25;
+}
+
+.office-document-content h3 {
+  font-size: 14pt;
+  font-weight: 600;
+  margin-top: 12pt;
+  margin-bottom: 4pt;
+  color: #333333;
+  line-height: 1.3;
+}
+
+.office-document-content p {
+  margin-bottom: 8pt;
+  line-height: 1.5;
+}
+
+.office-document-content ul {
+  list-style-type: disc;
+  margin-left: 24pt;
+  margin-bottom: 8pt;
+}
+
+.office-document-content ol {
+  list-style-type: decimal;
+  margin-left: 24pt;
+  margin-bottom: 8pt;
+}
+
+.office-document-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10pt;
+  margin-bottom: 12pt;
+}
+
+.office-document-content table td,
+.office-document-content table th {
+  border: 1px solid #d2d0ce;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.office-document-content table th {
+  background-color: #f3f2f1;
+  font-weight: 600;
+}
+
+.office-document-content blockquote {
+  border-left: 3px solid #185abd;
+  padding-left: 12pt;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 8pt;
+  margin-bottom: 8pt;
+  font-style: italic;
+  color: #555555;
+}
+
+.office-document-content hr {
+  border: none;
+  border-top: 1px solid #d2d0ce;
+  margin: 16pt 0;
+}
+
+/* Print CSS: Isolates and prints pristine document pages only */
+@media print {
+  body {
+    background: white !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .office-sheet-page {
+    box-shadow: none !important;
+    margin: 0 !important;
+    border: none !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: white !important;
+  }
+
+  @page {
+    margin: 0;
+    size: auto;
+  }
+}
