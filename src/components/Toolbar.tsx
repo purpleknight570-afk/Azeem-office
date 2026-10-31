@@ -102,7 +102,6 @@ export const Toolbar: React.FC<ToolbarProps> = ({
       setShowInstallBtn(false);
     }
   };
-s
   const [showTextColorPicker, setShowTextColorPicker] = useState(false);
   const [showBgColorPicker, setShowBgColorPicker] = useState(false);
   const [showHeadingMenu, setShowHeadingMenu] = useState(false);
