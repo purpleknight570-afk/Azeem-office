@@ -457,32 +457,24 @@ export const Toolbar: React.FC<ToolbarProps> = ({
             title="Insert images from device or offline library"
           >
             <ImageIcon size={14} className="text-emerald-600" />
-            <span>Insert Image</span>
-          </button>
 
-        </div>
-
-        {/* Right Section: Prominent "Download PDF" Action */}
-        <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2">
           <button
             onClick={onOpenExportModal}
-            className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-bold shadow-md hover:shadow-lg transition-all cursor-pointer transform hover:-translate-y-0.5"
-            title="Download your document as PDF"
+            className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-bold title='Download your document as PDF'"
           >
             <Download size={15} />
             <span>Download PDF</span>
-</button>
-{showInstallBtn && (
-
-  <button
-    onClick={handleInstallClick}
-    className="flex items-center gap-1.5 px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded-md font-medium text-xs transition-colors shadow-xs"
-  >
-    <Download size={15} />
-    <span>Install App</span>
-  </button>
-)}
-
+          </button>
+                                {showInstallBtn && (
+            <button
+              onClick={handleInstallClick}
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded-md font-medium text-xs transition-colors shadow-xs"
+            >
+              <Download size={15} />
+              <span>Install App</span>
+            </button>
+          )}
         </div>
       </div>
     </div>
