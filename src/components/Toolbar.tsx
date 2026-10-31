@@ -472,7 +472,9 @@ s
           >
             <Download size={15} />
             <span>Download PDF</span>
-          </button>{showInstallBtn && (
+</button>
+{showInstallBtn && (
+
   <button
     onClick={handleInstallClick}
     className="flex items-center gap-1.5 px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded-md font-medium text-xs transition-colors shadow-xs"
