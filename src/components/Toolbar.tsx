@@ -80,7 +80,29 @@ export const Toolbar: React.FC<ToolbarProps> = ({
   onInsertDecorativeTitle,
   onUndo,
   onRedo,
-}) => {
+}) => {  const [deferredPrompt, setDeferredPrompt] = React.useState<any>(null);
+  const [showInstallBtn, setShowInstallBtn] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleBeforeInstallPrompt = (e: Event) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowInstallBtn(true);
+    };
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      setDeferredPrompt(null);
+      setShowInstallBtn(false);
+    }
+  };
+s
   const [showTextColorPicker, setShowTextColorPicker] = useState(false);
   const [showBgColorPicker, setShowBgColorPicker] = useState(false);
   const [showHeadingMenu, setShowHeadingMenu] = useState(false);
@@ -438,6 +460,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
             <ImageIcon size={14} className="text-emerald-600" />
             <span>Insert Image</span>
           </button>
+
         </div>
 
         {/* Right Section: Prominent "Download PDF" Action */}
@@ -449,7 +472,16 @@ export const Toolbar: React.FC<ToolbarProps> = ({
           >
             <Download size={15} />
             <span>Download PDF</span>
-          </button>
+          </button>{showInstallBtn && (
+  <button
+    onClick={handleInstallClick}
+    className="flex items-center gap-1.5 px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded-md font-medium text-xs transition-colors shadow-xs"
+  >
+    <Download size={15} />
+    <span>Install App</span>
+  </button>
+)}
+
         </div>
       </div>
     </div>
